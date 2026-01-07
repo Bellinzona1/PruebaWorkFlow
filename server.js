@@ -27,7 +27,7 @@ async function initializeWhatsApp() {
       },
       headless: 'new',
       devtools: false,
-      useChrome: true,
+      useChrome: false, // Usar Chromium en lugar de Chrome para compatibilidad con servidores
       debug: false,
       logQR: true,
       autoClose: 0, // Nunca cerrar automáticamente (0 = infinito)
@@ -37,7 +37,14 @@ async function initializeWhatsApp() {
         '--no-sandbox',
         '--disable-setuid-sandbox',
         '--disable-gpu',
-        '--disable-dev-shm-usage'
+        '--disable-dev-shm-usage',
+        '--disable-accelerated-2d-canvas',
+        '--no-first-run',
+        '--no-zygote',
+        '--single-process',
+        '--disable-background-timer-throttling',
+        '--disable-backgrounding-occluded-windows',
+        '--disable-renderer-backgrounding'
       ]
     });
 
